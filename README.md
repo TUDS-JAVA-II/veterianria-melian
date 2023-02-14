@@ -1,2 +1,2 @@
 # veterianria-melian
-Porojecto para madrede gabriel
+Projecto para madre de gabriel
