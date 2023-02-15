@@ -8,7 +8,7 @@ public class Usuario {
 protected String nombreUsuario;
 protected long dni;
 protected long numCelular;
-protected long numFijo;
+protected String email;
 protected String direccion;
 protected Mascota mascota;
 
