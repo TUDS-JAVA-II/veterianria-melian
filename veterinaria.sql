@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 16-02-2023 a las 18:58:08
+-- Tiempo de generación: 16-02-2023 a las 19:00:11
 -- Versión del servidor: 10.10.2-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -42,17 +42,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `dni` (`dni`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
---
--- Volcado de datos para la tabla `cliente`
---
-
-INSERT INTO `cliente` (`id`, `dni`, `apellido`, `nombres`, `domicilio`, `tel_movil`, `email`, `creado`) VALUES
-(1, '5555555', 'GOMEZ', 'Jorge', 'manzanos 245', 55555, 'gato_feo@gmail.com', '2023-02-16 17:45:01'),
-(2, '6778786', 'GOMEZ', 'Anfdres', 'manzanos 245', 55555, 'gato_feo@gmail.com', '2023-02-16 17:45:01'),
-(3, '5895896', 'MELIAN', 'Gabriel', 'av del sol 245', 5689864, 'Melian@gmail.com', '2023-02-16 17:45:01'),
-(4, '4585965', 'TOLOZA', 'Leonardo', 'av sol 456', 9123847, 'leoanrdo@gmail.com', '2023-02-16 18:15:25');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -66,17 +56,7 @@ CREATE TABLE IF NOT EXISTS `especie` (
   `especie` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
---
--- Volcado de datos para la tabla `especie`
---
-
-INSERT INTO `especie` (`id`, `especie`) VALUES
-(1, 'Perro'),
-(2, 'Serpiente'),
-(3, 'Gato'),
-(4, 'Pajaro');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -92,16 +72,7 @@ CREATE TABLE IF NOT EXISTS `historia_clinica` (
   `creado` timestamp NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_mascota` (`id_mascota`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
---
--- Volcado de datos para la tabla `historia_clinica`
---
-
-INSERT INTO `historia_clinica` (`id`, `id_mascota`, `intervencion`, `creado`) VALUES
-(1, 1, 'Se atencdioproque comioun rollopapel higienico marca CAMAPNITA\r\nCuandola sacudis suena', '2023-02-16 17:48:05'),
-(2, 2, 'se comiomedio cordero, se administro reliveran', '2023-02-16 18:18:05'),
-(3, 1, 'se verifico que dejo d ezonar laeel papel higieco, sele recomendoal dueñio no dejar papel en  el bidet', '2023-02-16 18:18:54');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -129,15 +100,7 @@ CREATE TABLE IF NOT EXISTS `mascota` (
   KEY `RAZA` (`raza`),
   KEY `TAMANIO` (`tamanio`),
   KEY `id_status` (`id_status`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
---
--- Volcado de datos para la tabla `mascota`
---
-
-INSERT INTO `mascota` (`id`, `id_especie`, `nombre`, `raza`, `nacido`, `tamanio`, `peso`, `color`, `id_status`, `id_cliente`, `chip`, `creado`) VALUES
-(1, 2, 'Chiflona', 1, '2023-02-16 17:47:24', 2, 5, '', 1, 1, 1234467789, '2023-02-16 17:47:24'),
-(2, 1, 'Cabezon', 2, '2023-02-16 18:12:51', 2, 15, '', 1, 2, 123446758, '2023-02-16 18:12:51');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -152,15 +115,7 @@ CREATE TABLE IF NOT EXISTS `raza` (
   `raza` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `ESPECIE` (`id_especie`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
---
--- Volcado de datos para la tabla `raza`
---
-
-INSERT INTO `raza` (`id`, `id_especie`, `raza`) VALUES
-(1, 2, 'Piton'),
-(2, 1, 'Labrador');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -173,15 +128,7 @@ CREATE TABLE IF NOT EXISTS `status` (
   `id` int(1) NOT NULL AUTO_INCREMENT,
   `status` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
---
--- Volcado de datos para la tabla `status`
---
-
-INSERT INTO `status` (`id`, `status`) VALUES
-(1, 'Vivo'),
-(2, 'Muerto');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -194,17 +141,7 @@ CREATE TABLE IF NOT EXISTS `tamanio` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
---
--- Volcado de datos para la tabla `tamanio`
---
-
-INSERT INTO `tamanio` (`id`, `descripcion`) VALUES
-(1, 'Pequeño'),
-(2, 'Mediano'),
-(3, 'Grande'),
-(4, 'Gigante');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Restricciones para tablas volcadas
