@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 16-02-2023 a las 18:19:32
+-- Tiempo de generación: 16-02-2023 a las 18:58:08
 -- Versión del servidor: 10.10.2-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `veterinaria`
 --
+CREATE DATABASE IF NOT EXISTS `veterinaria` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci;
+USE `veterinaria`;
 
 -- --------------------------------------------------------
 
@@ -117,22 +119,23 @@ CREATE TABLE IF NOT EXISTS `mascota` (
   `tamanio` int(1) NOT NULL DEFAULT 0,
   `peso` int(11) NOT NULL DEFAULT 0,
   `color` varchar(50) NOT NULL,
-  `status` int(11) NOT NULL DEFAULT 1,
+  `id_status` int(1) NOT NULL,
   `id_cliente` int(11) NOT NULL,
   `chip` int(11) NOT NULL,
   `creado` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `ESPECIE` (`id_especie`) USING BTREE,
   KEY `DUENIO` (`id_cliente`),
-  KEY `raza` (`raza`),
-  KEY `tamanio` (`tamanio`)
+  KEY `RAZA` (`raza`),
+  KEY `TAMANIO` (`tamanio`),
+  KEY `id_status` (`id_status`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `mascota`
 --
 
-INSERT INTO `mascota` (`id`, `id_especie`, `nombre`, `raza`, `nacido`, `tamanio`, `peso`, `color`, `status`, `id_cliente`, `chip`, `creado`) VALUES
+INSERT INTO `mascota` (`id`, `id_especie`, `nombre`, `raza`, `nacido`, `tamanio`, `peso`, `color`, `id_status`, `id_cliente`, `chip`, `creado`) VALUES
 (1, 2, 'Chiflona', 1, '2023-02-16 17:47:24', 2, 5, '', 1, 1, 1234467789, '2023-02-16 17:47:24'),
 (2, 1, 'Cabezon', 2, '2023-02-16 18:12:51', 2, 15, '', 1, 2, 123446758, '2023-02-16 18:12:51');
 
@@ -148,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `raza` (
   `id_especie` int(11) NOT NULL,
   `raza` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `especie` (`id_especie`)
+  KEY `ESPECIE` (`id_especie`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
@@ -158,6 +161,27 @@ CREATE TABLE IF NOT EXISTS `raza` (
 INSERT INTO `raza` (`id`, `id_especie`, `raza`) VALUES
 (1, 2, 'Piton'),
 (2, 1, 'Labrador');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `status`
+--
+
+DROP TABLE IF EXISTS `status`;
+CREATE TABLE IF NOT EXISTS `status` (
+  `id` int(1) NOT NULL AUTO_INCREMENT,
+  `status` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `status`
+--
+
+INSERT INTO `status` (`id`, `status`) VALUES
+(1, 'Vivo'),
+(2, 'Muerto');
 
 -- --------------------------------------------------------
 
@@ -199,13 +223,8 @@ ALTER TABLE `mascota`
   ADD CONSTRAINT `mascota_ibfk_1` FOREIGN KEY (`id_especie`) REFERENCES `especie` (`id`),
   ADD CONSTRAINT `mascota_ibfk_2` FOREIGN KEY (`raza`) REFERENCES `raza` (`id`),
   ADD CONSTRAINT `mascota_ibfk_3` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id`),
-  ADD CONSTRAINT `mascota_ibfk_4` FOREIGN KEY (`tamanio`) REFERENCES `tamanio` (`id`);
-
---
--- Filtros para la tabla `raza`
---
-ALTER TABLE `raza`
-  ADD CONSTRAINT `raza_ibfk_1` FOREIGN KEY (`id_especie`) REFERENCES `especie` (`id`);
+  ADD CONSTRAINT `mascota_ibfk_4` FOREIGN KEY (`tamanio`) REFERENCES `tamanio` (`id`),
+  ADD CONSTRAINT `mascota_ibfk_5` FOREIGN KEY (`id_status`) REFERENCES `status` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
