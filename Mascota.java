@@ -25,6 +25,7 @@ public class Mascota {
     protected boolean esterilizado;//Si/No
     protected Integer status;//Vivo/Muerto/Mudado/Dejo de ser paciente.
     protected ArrayList<String> motivoConsulta;
+    protected Integer chip;
     
     //Metodos.
     
@@ -116,7 +117,13 @@ public class Mascota {
         this.motivoConsulta = motivoConsulta;
     }
     
-    
+    public Integer getChip() {
+        return chip;
+    }
+
+    public void setChip(Integer chip) {
+        this.chip = chip;
+    }
     
     
 }
