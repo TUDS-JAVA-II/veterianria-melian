@@ -6,7 +6,10 @@ package modelo;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 
 public class Conectar { 
@@ -15,16 +18,18 @@ public class Conectar {
     private final String usuario = "root"; // usuario para acceder a la base de datos, por defecto es 'root'
     private final String pass = ""; // contraseña para acceder, por defecto el usuario root, no tiene contraseña
     private final String url = "jdbc:mysql://localhost:3306/" + base; // URL es la direccion de la conexion, por defecto en local y el puerto 3306 + el nombre de la db
-
+    private static ResultSet rs;
+    private static Statement consultas;
     public Connection getConexion() {
         try {
             Class.forName("org.mariadb.jdbc.Driver"); 
             conectar = DriverManager.getConnection(url,usuario,pass);
+            consultas = conectar.createStatement();
             
            /**
-            * descomentar la linea 27 y corroborar en consola que la conexion sea correcta
+            * descomentar la linea 32 y corroborar en consola que la conexion sea correcta
             */
-            System.out.println("Conectado exitosamente!");
+           // System.out.println("Conectado exitosamente!");
         } catch (HeadlessException | ClassNotFoundException | SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -40,26 +45,29 @@ public class Conectar {
     **/
 //    public String Consultar(){
 //        String salida = "";
-//        String consulta = "SELECT * FROM personas";
 //        try {
-//            //executeUpdate se usa para modificar la bd (delete,update,create son las 3 maneras de modificar una bd)
-//            //executeQuery se usar unicamente para hacerle una consulta a la bd
-//            resultado = consultas.executeQuery(consulta);
-//            while (resultado.next()){
-//            salida += resultado.getString(1)+"\t";
-//            salida += resultado.getString(2)+"\t";
-//            salida += resultado.getString(3)+"\t";
-//            salida += resultado.getString(4)+"\t";
-//            salida += resultado.getString(5)+"\t";
-//            salida += resultado.getString(6)+"\t";
-//            salida += resultado.getString(7)+"\t\n";
-//            
+//        
+//        conectar=getConexion();
+//       String Sql = "SELECT * FROM personas";
+//        System.out.println(Sql);
+//        
+////            executeUpdate se usa para modificar la bd (delete,update,create son las 3 maneras de modificar una bd)
+////            executeQuery se usar unicamente para hacerle una consulta a la bd
+//            rs = consultas.executeQuery(Sql);
+//            while (rs.next()){
+//            salida += rs.getString(1)+"\t";
+//            salida += rs.getString(2)+"\t";
+//            salida += rs.getString(3)+"\t";
+//            salida += rs.getString(4)+"\t";
+//            salida += rs.getString(5)+"\t";
+//            salida += rs.getString(6)+"\t\n";
+//            System.out.println("linea 60, deberia traer los registros");
 //            }
 //                
 //        } catch (Exception e) {
-//            System.out.println("No se pudo consultar"+e);
+//            System.out.println("No se pudo consultar "+e);
 //        }
 //        return salida;
-//    }
-
+//}
+    
 }

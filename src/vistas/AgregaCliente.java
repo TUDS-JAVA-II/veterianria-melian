@@ -43,92 +43,91 @@ public class AgregaCliente extends javax.swing.JFrame {
         DNI = new javax.swing.JLabel();
         apellido = new javax.swing.JLabel();
         direccion = new javax.swing.JLabel();
-        email = new javax.swing.JLabel();
         nombre = new javax.swing.JLabel();
         celular = new javax.swing.JLabel();
-        emailCliente = new javax.swing.JTextField();
         nombreCliente = new javax.swing.JTextField();
         apellidoCliente = new javax.swing.JTextField();
         dniCliente = new javax.swing.JTextField();
         domicilioCliente = new javax.swing.JTextField();
         celularCliente = new javax.swing.JTextField();
         agregarCliente = new javax.swing.JButton();
+        email = new javax.swing.JLabel();
+        emailCliente = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         Titulo.setFont(new java.awt.Font("Tahoma", 3, 17)); // NOI18N
         Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Titulo.setText("Formulario de ingreso de clientes a la base de datos");
         Titulo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         DNI.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         DNI.setText("DNI:");
+        DNI.setMaximumSize(null);
         DNI.setMinimumSize(new java.awt.Dimension(6, 22));
         DNI.setPreferredSize(new java.awt.Dimension(6, 22));
-        jPanel1.add(DNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 122, 80, 30));
+        jPanel1.add(DNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 80, 30));
 
         apellido.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         apellido.setText("Apellido:");
+        apellido.setMaximumSize(null);
         apellido.setMinimumSize(new java.awt.Dimension(6, 22));
         apellido.setPreferredSize(new java.awt.Dimension(6, 22));
-        jPanel1.add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 82, 80, 30));
+        jPanel1.add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 80, 30));
 
         direccion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         direccion.setText("Direccion:");
+        direccion.setMaximumSize(null);
         direccion.setMinimumSize(new java.awt.Dimension(6, 22));
         direccion.setPreferredSize(new java.awt.Dimension(6, 22));
-        jPanel1.add(direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 162, 80, 30));
-
-        email.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        email.setText("E-mail:");
-        email.setMinimumSize(new java.awt.Dimension(6, 22));
-        email.setName(""); // NOI18N
-        email.setPreferredSize(new java.awt.Dimension(6, 22));
-        jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 80, 30));
+        jPanel1.add(direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 80, 30));
 
         nombre.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nombre.setText("Nombre:");
+        nombre.setMaximumSize(null);
         nombre.setMinimumSize(new java.awt.Dimension(6, 22));
         nombre.setPreferredSize(new java.awt.Dimension(6, 22));
-        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 42, 80, 30));
+        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 80, 30));
 
         celular.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         celular.setText("Telefono Celular:");
+        celular.setMaximumSize(null);
         celular.setMinimumSize(new java.awt.Dimension(6, 22));
         celular.setPreferredSize(new java.awt.Dimension(6, 22));
-        jPanel1.add(celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 202, 130, 30));
+        jPanel1.add(celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 130, 30));
 
-        emailCliente.setMaximumSize(new java.awt.Dimension(6, 22));
-        emailCliente.setMinimumSize(new java.awt.Dimension(6, 22));
-        emailCliente.setPreferredSize(new java.awt.Dimension(8, 25));
-        jPanel1.add(emailCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 180, 30));
-
-        nombreCliente.setMaximumSize(new java.awt.Dimension(6, 22));
+        nombreCliente.setMaximumSize(null);
         nombreCliente.setMinimumSize(new java.awt.Dimension(6, 22));
         nombreCliente.setPreferredSize(new java.awt.Dimension(8, 25));
-        jPanel1.add(nombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 42, 180, 30));
+        jPanel1.add(nombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 180, 30));
 
-        apellidoCliente.setMaximumSize(new java.awt.Dimension(6, 22));
+        apellidoCliente.setMaximumSize(null);
         apellidoCliente.setMinimumSize(new java.awt.Dimension(6, 22));
         apellidoCliente.setPreferredSize(new java.awt.Dimension(8, 25));
-        jPanel1.add(apellidoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 82, 180, 30));
+        jPanel1.add(apellidoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 180, 30));
 
-        dniCliente.setMaximumSize(new java.awt.Dimension(6, 22));
+        dniCliente.setMaximumSize(null);
         dniCliente.setMinimumSize(new java.awt.Dimension(6, 22));
         dniCliente.setPreferredSize(new java.awt.Dimension(8, 25));
-        jPanel1.add(dniCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 122, 180, 30));
+        jPanel1.add(dniCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 180, 30));
 
-        domicilioCliente.setMaximumSize(new java.awt.Dimension(6, 22));
+        domicilioCliente.setMaximumSize(null);
         domicilioCliente.setMinimumSize(new java.awt.Dimension(6, 22));
         domicilioCliente.setPreferredSize(new java.awt.Dimension(8, 25));
-        jPanel1.add(domicilioCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 162, 180, 30));
+        jPanel1.add(domicilioCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 180, 30));
 
-        celularCliente.setMaximumSize(new java.awt.Dimension(6, 22));
+        celularCliente.setMaximumSize(null);
         celularCliente.setMinimumSize(new java.awt.Dimension(6, 22));
         celularCliente.setPreferredSize(new java.awt.Dimension(8, 25));
-        jPanel1.add(celularCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 202, 180, 30));
+        jPanel1.add(celularCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 180, 30));
 
         agregarCliente.setText("Agregar");
         agregarCliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -137,7 +136,20 @@ public class AgregaCliente extends javax.swing.JFrame {
                 agregarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(agregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 166, 37));
+        jPanel1.add(agregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 166, 37));
+
+        email.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        email.setText("E-mail:");
+        email.setMaximumSize(null);
+        email.setMinimumSize(new java.awt.Dimension(6, 22));
+        email.setName(""); // NOI18N
+        email.setPreferredSize(new java.awt.Dimension(6, 22));
+        jPanel1.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 80, 30));
+
+        emailCliente.setMaximumSize(null);
+        emailCliente.setMinimumSize(new java.awt.Dimension(6, 22));
+        emailCliente.setPreferredSize(new java.awt.Dimension(8, 25));
+        jPanel1.add(emailCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 180, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -155,9 +167,9 @@ public class AgregaCliente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -176,7 +188,7 @@ public class AgregaCliente extends javax.swing.JFrame {
        modCliente.setDomicilio(domicilioCliente.getText());
        modCliente.setNumCelular(celularCliente.getText());
        modCliente.setEmail(emailCliente.getText());
-       
+
        if (modSql.AgregarCliente(modCliente)) { //validacion para agregar un usario a la db
                         JOptionPane.showMessageDialog(null, "Se guardó exitosamente el usuario");
                         limpiar(); // funcion para borrar los campos de texto y dejarlos listos para volver a agregar un usario
@@ -185,6 +197,10 @@ public class AgregaCliente extends javax.swing.JFrame {
                     }
     }//GEN-LAST:event_agregarClienteActionPerformed
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+       Home.formulario = null; // permite cerrar y volver a iniciar el formulario
+    }//GEN-LAST:event_formWindowClosing
+
     private void limpiar(){
     nombreCliente.setText("");
     apellidoCliente.setText("");
@@ -192,6 +208,7 @@ public class AgregaCliente extends javax.swing.JFrame {
     domicilioCliente.setText("");
     celularCliente.setText("");
     emailCliente.setText("");
+    
     }
  
     /**
