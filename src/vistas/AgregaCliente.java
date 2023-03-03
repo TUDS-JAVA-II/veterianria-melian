@@ -198,7 +198,7 @@ public class AgregaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_agregarClienteActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-       Home.formulario = null; // permite cerrar y volver a iniciar el formulario
+       Home.formularioAgregaCliente = null; // permite cerrar y volver a iniciar el formularioAgregaCliente
     }//GEN-LAST:event_formWindowClosing
 
     private void limpiar(){

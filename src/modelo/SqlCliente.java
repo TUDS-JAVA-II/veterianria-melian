@@ -6,7 +6,6 @@ package modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 public class SqlCliente extends Conectar{
      
@@ -19,7 +18,7 @@ public class SqlCliente extends Conectar{
         PreparedStatement ps = null;
         Connection conn = getConexion();
         //sentencia preparada en java con valores posicionales
-        String sql = "INSERT INTO personas (dni,apellido,nombres,domicilio,tel_movil,email) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO personas (dni,apellido,nombres,domicilio,celular,email) VALUES (?,?,?,?,?,?)";
         try {
             ps = conn.prepareStatement(sql);
             ps.setString(1, cliente.getDni());
@@ -36,30 +35,5 @@ public class SqlCliente extends Conectar{
             System.out.println("ERROR DE REGISTRO: " + e.getMessage());
             return false;
         }
-
     }
-   
-    public boolean actualizarCliente(Cliente cliente) {
-        PreparedStatement ps = null;
-        Connection conn = getConexion();
-        //sentencia preparada en java con valores posicionales
-        String sql = "UPDATE personas SET dni=?,apellido=?,nombres=?,domicilio=?,tel_movil=?,email=?";
-        try {
-            ps = conn.prepareStatement(sql);
-            ps.setString(1, cliente.getDni());
-            ps.setString(2, cliente.getApellidoCliente());
-            ps.setString(3, cliente.getNombreCliente());
-            ps.setString(4, cliente.getDomicilio());
-            ps.setString(5, cliente.getNumCelular());
-            ps.setString(6, cliente.getEmail());
-            ps.executeUpdate();
-            conn.close();
-            return true;
-        } catch (SQLException e) {
-            System.out.println("ERROR DE REGISTRO: " + e.getMessage());
-            return false;
-        }
-
-    }
-
 }
