@@ -6,6 +6,7 @@
 
 package vistas;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +21,7 @@ import modelo.Conectar;
  *
  * @author leo_t
  */
-public class editarCliente extends javax.swing.JFrame {
+public final class editarCliente extends javax.swing.JFrame {
 static Conectar con = new Conectar();
     PreparedStatement ps = null;
     ResultSet rs = null;
@@ -30,17 +31,19 @@ static Conectar con = new Conectar();
         initComponents();
         this.setTitle("Administrar Cliente");
         this.setLocationRelativeTo(null);
-        columnas();
+       columnas();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        Titulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaDatos2 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnActualizar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Administrar Cliente");
@@ -50,24 +53,32 @@ static Conectar con = new Conectar();
             }
         });
 
+        Titulo.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        Titulo.setForeground(new java.awt.Color(255, 255, 255));
+        Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Titulo.setLabelFor(Titulo);
+        Titulo.setText("Editar Cliente");
+        Titulo.setToolTipText("");
+        Titulo.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Veterinaria REM", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Tahoma", 0, 16), new java.awt.Color(255, 255, 255))); // NOI18N
+
         tablaDatos2.setAutoCreateRowSorter(true);
         tablaDatos2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         tablaDatos2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nombres", "Apellido", "DNI", "Domicilio", "Celular", "Email", "Fecha"
+                "Nombres", "Apellido", "DNI", "Domicilio", "Celular", "Email", "Fecha", "Id"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -78,7 +89,8 @@ static Conectar con = new Conectar();
                 return canEdit [columnIndex];
             }
         });
-        tablaDatos2.setCellSelectionEnabled(true);
+        tablaDatos2.setToolTipText("");
+        tablaDatos2.setColumnSelectionAllowed(false);
         jScrollPane1.setViewportView(tablaDatos2);
         if (tablaDatos2.getColumnModel().getColumnCount() > 0) {
             tablaDatos2.getColumnModel().getColumn(0).setResizable(false);
@@ -88,12 +100,12 @@ static Conectar con = new Conectar();
             tablaDatos2.getColumnModel().getColumn(4).setResizable(false);
             tablaDatos2.getColumnModel().getColumn(5).setResizable(false);
             tablaDatos2.getColumnModel().getColumn(6).setResizable(false);
+            tablaDatos2.getColumnModel().getColumn(7).setMinWidth(5);
+            tablaDatos2.getColumnModel().getColumn(7).setPreferredWidth(5);
+            tablaDatos2.getColumnModel().getColumn(7).setMaxWidth(10);
         }
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Editar Cliente");
-        jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Veterinaria REM", javax.swing.border.TitledBorder.RIGHT, javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
+        jPanel1.setOpaque(false);
 
         btnActualizar.setText("Actualizar");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -102,18 +114,56 @@ static Conectar con = new Conectar();
             }
         });
 
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(358, 358, 358)
-                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(388, Short.MAX_VALUE))
+                .addGap(67, 67, 67)
+                .addComponent(btnActualizar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnEliminar)
+                .addGap(153, 153, 153))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jDesktopPane1.setLayer(Titulo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 995, Short.MAX_VALUE)
+                    .addComponent(Titulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -121,20 +171,12 @@ static Conectar con = new Conectar();
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addComponent(jDesktopPane1)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jDesktopPane1)
         );
 
         getAccessibleContext().setAccessibleDescription("");
@@ -143,12 +185,20 @@ static Conectar con = new Conectar();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        actualizarDatos();       
+        actualizarDatos();      
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
          Home.formularioEditaCliente = null; // permite cerrar y volver a iniciar el formularioAgregaCliente
     }//GEN-LAST:event_formWindowClosing
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+    eliminarCliente();
+        int confirmar =JOptionPane.showConfirmDialog(null,"¿ESTÁ SEGURO DE ELIMINAR UN CLIENTE?","ATENCION",2);
+        if (confirmar == 0) {
+            JOptionPane.showMessageDialog(null, "ELIMINANDO CLIENTE");
+         } 
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -181,14 +231,18 @@ static Conectar con = new Conectar();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Titulo;
     private javax.swing.JButton btnActualizar;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablaDatos2;
     // End of variables declaration//GEN-END:variables
-
-    private void columnas() {
+/**
+ * Funciones para editar o eliminar los clientes y mostrar las columnas de la base de datos
+ */
+    public void columnas() {
         try {
             modelo = new DefaultTableModel();
             Connection conn = con.getConexion();
@@ -210,8 +264,8 @@ static Conectar con = new Conectar();
             /**
              * setear anchos de columnas con codigo
              */
-            int[] anchos = {5,70, 70, 50, 80, 40, 70, 30};
-            for (int i = 1; i < cantColumnas; i++) {
+            int[] anchos = {7,80, 80, 45, 80, 40, 70, 30};
+            for (int i = 0; i < cantColumnas; i++) {
                 tablaDatos2.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
             }
 
@@ -227,27 +281,52 @@ static Conectar con = new Conectar();
             System.out.println(e.toString());
         }
     }
-    public void actualizarDatos(){
-      
-      int fila = tablaDatos2.getSelectedRow();
-      int id = Integer.parseInt(this.tablaDatos2.getValueAt(fila, 0).toString());
-      String nombre = tablaDatos2.getValueAt(fila, 1).toString();
-      String apellido = tablaDatos2.getValueAt(fila, 2).toString();
-      String DNI = tablaDatos2.getValueAt(fila, 3).toString();
-      String domicilio = tablaDatos2.getValueAt(fila, 4).toString();
-      String celular = tablaDatos2.getValueAt(fila, 5).toString();
-      String Email = tablaDatos2.getValueAt(fila, 6).toString();
-      String modificado=tablaDatos2.getValueAt(fila, 7).toString();
-      try {
-          Connection conn = con.getConexion();
-          String sql = "UPDATE `personas` SET nombres ='"+nombre+"', apellido ='"+apellido+"',DNI='"+DNI+"', domicilio ='"+domicilio+"', celular ='"+celular+"', email ='"+Email+"', fecha='"+modificado+"' WHERE id='"+id+"'";
-          PreparedStatement actualizar = conn.prepareStatement(sql);
-          actualizar.executeUpdate();
-          
-          JOptionPane.showMessageDialog(null, "Cliente Actualizado!");
-      } catch (SQLException e) {
-          JOptionPane.showMessageDialog(null, "Hubo un error al actualizar: "+e);
-      }
-
-  }
+    public void actualizarDatos() {
+        try {
+            int fila;
+            fila = tablaDatos2.getSelectedRow();
+            if (fila <= -1) {
+                JOptionPane.showMessageDialog(null, "Seleccione el registro a modificar, antes de presionar el botón");
+            }
+            int id = Integer.parseInt(this.tablaDatos2.getValueAt(fila, 0).toString());
+            String nombre = tablaDatos2.getValueAt(fila, 1).toString();
+            String apellido = tablaDatos2.getValueAt(fila, 2).toString();
+            String DNI = tablaDatos2.getValueAt(fila, 3).toString();
+            String domicilio = tablaDatos2.getValueAt(fila, 4).toString();
+            String celular = tablaDatos2.getValueAt(fila, 5).toString();
+            String Email = tablaDatos2.getValueAt(fila, 6).toString();
+            String modificado = tablaDatos2.getValueAt(fila, 7).toString();
+            try {
+                Connection conn = con.getConexion();
+                String sql = "UPDATE `personas` SET nombres ='" + nombre + "', apellido ='" + apellido + "',DNI='" + DNI + "', domicilio ='" + domicilio + "', celular ='" + celular + "', email ='" + Email + "', fecha='" + modificado + "' WHERE id='" + id + "'";
+                PreparedStatement actualizar = conn.prepareStatement(sql);
+                actualizar.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Cliente Actualizado!");
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Hubo un error al actualizar: " + e);
+            }
+        } catch (IndexOutOfBoundsException | NumberFormatException e) {
+            System.out.println("Error: " + e);
+        }
+    }
+    public void eliminarCliente() {
+        try {
+            int fila;
+            fila = tablaDatos2.getSelectedRow();
+            if (fila <= -1) {
+                JOptionPane.showMessageDialog(null, "Seleccione el registro a eliminar, antes de presionar el botón");
+            }
+            String id = tablaDatos2.getValueAt(fila, 0).toString();
+            try {
+                Connection conn = con.getConexion();
+                String sql = "DELETE FROM personas WHERE id='" + id + "'";
+                PreparedStatement actualizar = conn.prepareStatement(sql);
+                actualizar.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println("No se pudo elimar el cliente, error: " + e);
+            }
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Error: " + e);
+        }
+    }
 }

@@ -38,6 +38,7 @@ public class AgregaCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         Titulo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         DNI = new javax.swing.JLabel();
@@ -55,51 +56,59 @@ public class AgregaCliente extends javax.swing.JFrame {
         emailCliente = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
         });
 
-        Titulo.setFont(new java.awt.Font("Tahoma", 3, 17)); // NOI18N
+        Titulo.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        Titulo.setForeground(new java.awt.Color(255, 255, 255));
         Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Titulo.setText("Formulario de ingreso de clientes a la base de datos");
-        Titulo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        Titulo.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true), "Veterinaria REM", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 0, 16), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.setOpaque(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        DNI.setForeground(new java.awt.Color(255, 255, 255));
         DNI.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         DNI.setText("DNI:");
-        DNI.setMaximumSize(null);
+        DNI.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
         DNI.setMinimumSize(new java.awt.Dimension(6, 22));
         DNI.setPreferredSize(new java.awt.Dimension(6, 22));
         jPanel1.add(DNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 80, 30));
 
+        apellido.setForeground(new java.awt.Color(255, 255, 255));
         apellido.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         apellido.setText("Apellido:");
-        apellido.setMaximumSize(null);
+        apellido.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
         apellido.setMinimumSize(new java.awt.Dimension(6, 22));
         apellido.setPreferredSize(new java.awt.Dimension(6, 22));
         jPanel1.add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 80, 30));
 
+        direccion.setForeground(new java.awt.Color(255, 255, 255));
         direccion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         direccion.setText("Direccion:");
-        direccion.setMaximumSize(null);
+        direccion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
         direccion.setMinimumSize(new java.awt.Dimension(6, 22));
         direccion.setPreferredSize(new java.awt.Dimension(6, 22));
         jPanel1.add(direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 80, 30));
 
+        nombre.setForeground(new java.awt.Color(255, 255, 255));
         nombre.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         nombre.setText("Nombre:");
-        nombre.setMaximumSize(null);
+        nombre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
         nombre.setMinimumSize(new java.awt.Dimension(6, 22));
         nombre.setPreferredSize(new java.awt.Dimension(6, 22));
         jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 80, 30));
 
+        celular.setForeground(new java.awt.Color(255, 255, 255));
         celular.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         celular.setText("Telefono Celular:");
-        celular.setMaximumSize(null);
+        celular.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
         celular.setMinimumSize(new java.awt.Dimension(6, 22));
         celular.setPreferredSize(new java.awt.Dimension(6, 22));
         jPanel1.add(celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 130, 30));
@@ -129,18 +138,22 @@ public class AgregaCliente extends javax.swing.JFrame {
         celularCliente.setPreferredSize(new java.awt.Dimension(8, 25));
         jPanel1.add(celularCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 180, 30));
 
+        agregarCliente.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        agregarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/agregar-usuario32x32.png"))); // NOI18N
         agregarCliente.setText("Agregar");
         agregarCliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        agregarCliente.setOpaque(false);
         agregarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agregarClienteActionPerformed(evt);
             }
         });
-        jPanel1.add(agregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 166, 37));
+        jPanel1.add(agregarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 166, 40));
 
+        email.setForeground(new java.awt.Color(255, 255, 255));
         email.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         email.setText("E-mail:");
-        email.setMaximumSize(null);
+        email.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
         email.setMinimumSize(new java.awt.Dimension(6, 22));
         email.setName(""); // NOI18N
         email.setPreferredSize(new java.awt.Dimension(6, 22));
@@ -151,25 +164,39 @@ public class AgregaCliente extends javax.swing.JFrame {
         emailCliente.setPreferredSize(new java.awt.Dimension(8, 25));
         jPanel1.add(emailCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 180, 30));
 
+        jDesktopPane1.setLayer(Titulo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -257,6 +284,7 @@ public class AgregaCliente extends javax.swing.JFrame {
     private javax.swing.JTextField domicilioCliente;
     private javax.swing.JLabel email;
     private javax.swing.JTextField emailCliente;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel nombre;
     private javax.swing.JTextField nombreCliente;
